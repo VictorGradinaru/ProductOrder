@@ -1,6 +1,6 @@
 ﻿using ProductOrdersProject.Interfaces;
 using Shared.Models;
-using Shared.NewFolder;
+using Shared.Logger;
 
 namespace ProductOrdersProject.Services
 {

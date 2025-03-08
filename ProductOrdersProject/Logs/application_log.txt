@@ -1,2 +1,0 @@
-2025-03-08 18:32:54 - Validated product with name Laptop
-2025-03-08 18:32:54 - Validated product with name Mouse

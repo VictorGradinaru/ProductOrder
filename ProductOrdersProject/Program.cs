@@ -1,7 +1,7 @@
 using ProductOrdersProject.Interfaces;
 using ProductOrdersProject.Repositories;
 using ProductOrdersProject.Services;
-using Shared.NewFolder;
+using Shared.Logger;
 
 var builder = WebApplication.CreateBuilder(args);
 
