@@ -1,0 +1,73 @@
+# User-specific files
+.vs/
+.vs2019/
+.vs2017/
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files for Visual Studio (and other packages)
+*.pdb
+*.obj
+*.idb
+*.ipch
+*.bak
+
+# User-specific files
+.vsconfig
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Files created by Visual Studio for Web projects
+node_modules/
+
+# VS for Mac files
+.vscode/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ebugFastUpToDate/
+[Dd]ebug+/
+[Dd]ebug+Portable/
+[Dd]ebug+None/
+[Dd]Release/
+[Dd]ReleasePublic/
+[Dd]ReleaseFastUpToDate/
+[Dd]Release+/
+[Dd]Release+Portable/
+[Dd]Release+None/
+bin/
+obj/
+
+# JetBrains Rider files
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files for Visual Studio (and other packages)
+*.pdb
+*.obj
+*.idb
+*.ipch
+*.bak
