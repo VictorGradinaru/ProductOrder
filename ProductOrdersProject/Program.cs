@@ -1,6 +1,7 @@
 using ProductOrdersProject.Interfaces;
 using ProductOrdersProject.Repositories;
 using ProductOrdersProject.Services;
+using Shared.NewFolder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IOrderRepository , OrderRepository>();
 builder.Services.AddScoped<IOrderService , OrderService>();
+builder.Services.AddScoped<IFileLogger, FileLogger>();
+builder.Services.AddSingleton(builder.Configuration);
 
 var app = builder.Build();
 

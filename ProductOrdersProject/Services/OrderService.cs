@@ -1,15 +1,18 @@
 ﻿using ProductOrdersProject.Interfaces;
 using Shared.Models;
+using Shared.NewFolder;
 
 namespace ProductOrdersProject.Services
 {
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
+        private readonly IFileLogger _fileLogger;
 
-        public OrderService(IOrderRepository orderRepository)
+        public OrderService(IOrderRepository orderRepository, IFileLogger fileLogger)
         {
             _orderRepository = orderRepository;
+            _fileLogger= fileLogger;
         }
 
         // GET ALL
@@ -28,7 +31,8 @@ namespace ProductOrdersProject.Services
             {
                 order.Id = Guid.NewGuid();
                 order.CreatedAt = DateTime.UtcNow;
-                order.Status ??= "Created"; // Setează implicit "Created" dacă nu e specificat
+                order.Status ??= "Validated"; // Setează implicit "Created" dacă nu e specificat
+                _fileLogger.Log($"Validated product with name {order.ProductName}");
             }
 
             foreach (var order in orders)
