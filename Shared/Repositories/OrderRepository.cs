@@ -32,5 +32,11 @@ namespace ProductOrdersProject.Repositories
         {
             await _orders.InsertOneAsync(order);
         }
+
+        public async Task UpdateAsync(OrderDto order)
+        {
+            var filter = Builders<OrderDto>.Filter.Eq(o => o.Id, order.Id);
+            await _orders.ReplaceOneAsync(filter, order);
+        }
     }
 }

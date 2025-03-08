@@ -6,5 +6,6 @@ namespace ProductOrdersProject.Interfaces
     {
         Task<IEnumerable<OrderDto>> GetAllAsync();
         Task AddAsync(OrderDto order);
+        Task UpdateAsync(OrderDto order);
     }
 }

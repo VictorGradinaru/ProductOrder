@@ -1,29 +1,36 @@
 ﻿using Microsoft.Extensions.Hosting;
+using PaymentProject.Interfaces;
 using Shared.Logger;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PaymentService
+namespace PaymentProject
 {
     public class Worker : BackgroundService
     {
         private readonly IFileLogger _fileLogger;
+        private readonly IPaymentService _paymentService;
 
         // Injectează FileLogger
-        public Worker(IFileLogger fileLogger)
+        public Worker(IFileLogger fileLogger, IPaymentService paymentService)
         {
             _fileLogger = fileLogger;
+            _paymentService = paymentService;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                if (_fileLogger != null)
+                var processedIds = await _paymentService.ProcessPaymentsAsync();
+
+                if (_fileLogger != null && processedIds != null && processedIds.Count() > 0)
                 {
-                    _fileLogger.Log($"Worker running at: {DateTimeOffset.Now}");
+                    foreach (var processedId in processedIds)
+                        _fileLogger.Log($"[PaymentProject] Products with ID: {processedId.ToString()} have been paid");
                 }
+
                 await Task.Delay(1000, stoppingToken);
             }
         }
